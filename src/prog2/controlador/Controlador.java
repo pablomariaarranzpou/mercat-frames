@@ -43,16 +43,12 @@ public class Controlador {
      * Métode que crida a Dades per Recuperar els Articles
      * @return True si no esta buida i imprimeix els Articles
      */
-    public boolean recuperarArticles() {
+    public List<String> recuperarArticles() {
         List<String> llista = _dades.recuperaArticles();
         if (llista.isEmpty()) {
-            return false;
+            return null;
         }
-        Iterator it = llista.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
-        }
-        return true;
+        return llista;
     }
 
     /**
@@ -71,16 +67,12 @@ public class Controlador {
      * Métode que crida a Dades per imprimir llista clients
      * @return True si no esta buida i imprimeix els Clients
      */
-    public boolean recuperarClients() {
+    public List<String> recuperarClients() {
         List<String> llista = _dades.recuperaClients();
         if (llista.isEmpty()) {
-            return false;
+            return null;
         }
-        Iterator it = llista.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
-        }
-        return true;
+        return llista;
     }
 
     /** 
@@ -99,16 +91,12 @@ public class Controlador {
      * Métode que crida a Dades per imprimir totes les Comandes
      * @return True si no esta buida i imprimeix les COmandes
      */
-    public boolean recuperarComandes() {
+    public List<String> recuperarComandes() {
         List<String> llista = _dades.recuperaComandes();
         if (llista.isEmpty()) {
-            return false;
+            return null;
         }
-        Iterator it = llista.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
-        }
-        return true;
+        return llista;
     }
 
     /**
@@ -124,14 +112,12 @@ public class Controlador {
      * Métode que crida a Dades per imprimir les comandes urgents.
      * @return True si no esta buida i imprimeix les comandes urgents.
      */
-    public boolean recuperarComandesUrgents() {
+    public List<String> recuperarComandesUrgents() {
         List<String> llista = _dades.recuperaComandesUrgents();
-        if(llista.isEmpty()) return false;
-        Iterator it = llista.iterator();
-        while(it.hasNext()) {
-            System.out.println(it.next());
+        if(llista.isEmpty()){
+            return null;
         }
-        return true;
+        return llista;
     }
 
     /**
