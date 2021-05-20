@@ -5,8 +5,6 @@
  */
 package prog2.vista;
 
-import java.util.Iterator;
-import javax.swing.DefaultListModel;
 import prog2.controlador.Controlador;
 
 /**
@@ -35,62 +33,34 @@ public class AppMercatUB extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonAddClientActionPerformed = new javax.swing.JButton();
+        btnGestioClients = new javax.swing.JButton();
         jButtonGestioArticles = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        llista_clients = new javax.swing.JList<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        llista_articles = new javax.swing.JList<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        llista_comandes = new javax.swing.JList<>();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        llista_comandesurgents = new javax.swing.JList<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonAddClientActionPerformed.setText("Afegir Client");
-        jButtonAddClientActionPerformed.addActionListener(new java.awt.event.ActionListener() {
+        btnGestioClients.setText("Gestió Clients");
+        btnGestioClients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddClientActionPerformedActionPerformed(evt);
+                btnGestioClientsActionPerformed(evt);
             }
         });
 
-        jButtonGestioArticles.setText("Afegir Article");
+        jButtonGestioArticles.setText("Gestió Articles");
         jButtonGestioArticles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGestioArticlesActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Afegir Comanda");
+        jButton3.setText("Gestió Comandes");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-
-        jScrollPane1.setViewportView(llista_clients);
-
-        jScrollPane2.setViewportView(llista_articles);
-
-        jScrollPane3.setViewportView(llista_comandes);
-
-        jScrollPane4.setViewportView(llista_comandesurgents);
-
-        jLabel1.setText("Clients");
-
-        jLabel2.setText("Comandes");
-
-        jLabel3.setText("Articles");
-
-        jLabel4.setText("Comandes Urgents");
 
         jButton4.setText("Guardar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -113,74 +83,40 @@ public class AppMercatUB extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonAddClientActionPerformed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestioClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonGestioArticles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane3)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonAddClientActionPerformed)
-                        .addGap(26, 26, 26)
-                        .addComponent(jButtonGestioArticles)
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton3)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton4)
-                        .addGap(31, 31, 31)
-                        .addComponent(jButton5)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(btnGestioClients)
+                .addGap(26, 26, 26)
+                .addComponent(jButtonGestioArticles)
+                .addGap(26, 26, 26)
+                .addComponent(jButton3)
+                .addGap(28, 28, 28)
+                .addComponent(jButton4)
+                .addGap(31, 31, 31)
+                .addComponent(jButton5)
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAddClientActionPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddClientActionPerformedActionPerformed
-        FrmGestioClients frame = new FrmGestioClients();
+    private void btnGestioClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestioClientsActionPerformed
+        FrmGestioClients frame = new FrmGestioClients(this.control);
         frame.setVisible(true);
-    }//GEN-LAST:event_jButtonAddClientActionPerformedActionPerformed
+    }//GEN-LAST:event_btnGestioClientsActionPerformed
 
     private void jButtonGestioArticlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestioArticlesActionPerformed
-        // TODO add your handling code here:
+        FrmGestioArticles frame = new FrmGestioArticles(this.control);
+        frame.setVisible(true);
     }//GEN-LAST:event_jButtonGestioArticlesActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -194,22 +130,9 @@ public class AppMercatUB extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+   
+    /*
     
-    public void actualitzarArticles() {
-
-        if (this.control.recuperarArticles() != null) {
-            DefaultListModel<String> list = new DefaultListModel<>();
-            Iterator<String> it = this.control.recuperarArticles().iterator();
-            while (it.hasNext()) {
-                list.addElement(it.next());
-            }
-            this.llista_articles.setModel(list);
-        } else {
-            DefaultListModel<String> list = new DefaultListModel<>();
-            list.addElement("El repositori està buit");
-            llista_articles.setModel(list);
-        }
-    }
     public void actualitzarComandes() {
 
         if (this.control.recuperarComandes()!= null) {
@@ -226,20 +149,7 @@ public class AppMercatUB extends javax.swing.JFrame {
         }
     }
     
-    public void actualitzarClients() {
-        if (this.control.recuperarClients() != null) {
-            DefaultListModel<String> list = new DefaultListModel<>();
-            Iterator<String> it = this.control.recuperarClients().iterator();
-            while (it.hasNext()) {
-                list.addElement(it.next());
-            }
-            this.llista_clients.setModel(list);
-        } else {
-            DefaultListModel<String> list = new DefaultListModel<>();
-            list.addElement("El repositori està buit");
-            llista_clients.setModel(list);
-        }
-    }
+    
     /**
      * @param args the command line arguments
      */
@@ -276,22 +186,10 @@ public class AppMercatUB extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGestioClients;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButtonAddClientActionPerformed;
     private javax.swing.JButton jButtonGestioArticles;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JList<String> llista_articles;
-    private javax.swing.JList<String> llista_clients;
-    private javax.swing.JList<String> llista_comandes;
-    private javax.swing.JList<String> llista_comandesurgents;
     // End of variables declaration//GEN-END:variables
 }
