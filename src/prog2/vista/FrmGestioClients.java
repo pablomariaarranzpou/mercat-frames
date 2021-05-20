@@ -24,6 +24,7 @@ public class FrmGestioClients extends javax.swing.JFrame {
     public FrmGestioClients(Controlador controlador) {
         initComponents();
         this.controlador = controlador;
+        actualitzarClients();
     }
 
     /**

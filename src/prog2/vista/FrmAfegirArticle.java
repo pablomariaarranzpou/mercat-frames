@@ -7,6 +7,7 @@ package prog2.vista;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import prog2.controlador.Controlador;
 
 
@@ -157,7 +158,7 @@ public class FrmAfegirArticle extends javax.swing.JFrame {
                  this.frame.actualitzarArticles();
                  this.dispose();
              } catch (MercatException ex) {
-                 Logger.getLogger(FrmAfegirArticle.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
              }
          }else if(!this.jCheckBox1.isSelected()){
              try {
@@ -165,7 +166,7 @@ public class FrmAfegirArticle extends javax.swing.JFrame {
                  this.frame.actualitzarArticles();
                  this.dispose();
              } catch (MercatException ex) {
-                 Logger.getLogger(FrmAfegirArticle.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
              }  
          }
     }//GEN-LAST:event_jButton1ActionPerformed

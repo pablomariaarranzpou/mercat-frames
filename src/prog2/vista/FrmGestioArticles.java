@@ -25,7 +25,7 @@ public class FrmGestioArticles extends javax.swing.JFrame {
     public FrmGestioArticles(Controlador control) {
         initComponents();
         this.controlador = control;
-        
+        actualitzarArticles();
         
     }
 

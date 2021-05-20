@@ -8,6 +8,7 @@ package prog2.vista;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import prog2.controlador.Controlador;
 
 
@@ -179,7 +180,7 @@ public class FrmAfegirClient extends javax.swing.JFrame {
             try {
                 this.control.addClient(this.txtNom.getText(), this.jTextField2.getText(), this.jTextField3.getText(), false);
             } catch (MercatException ex) {
-                Logger.getLogger(FrmAfegirClient.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
             }
             this.frame.actualitzarClients();
             this.dispose();
@@ -188,7 +189,7 @@ public class FrmAfegirClient extends javax.swing.JFrame {
             try {
                 this.control.addClient(this.txtNom.getText(), this.jTextField2.getText(), this.jTextField3.getText(), true);
             } catch (MercatException ex) {
-                Logger.getLogger(FrmAfegirClient.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
             }
             this.frame.actualitzarClients();
             this.dispose();

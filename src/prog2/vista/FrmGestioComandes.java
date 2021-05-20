@@ -23,6 +23,7 @@ public class FrmGestioComandes extends javax.swing.JFrame {
     public FrmGestioComandes(Controlador control) {
         initComponents();
         this.controlador = control;
+        actualitzarComandes();
     }
 
     /**
