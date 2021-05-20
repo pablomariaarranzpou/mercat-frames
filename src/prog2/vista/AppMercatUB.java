@@ -131,23 +131,8 @@ public class AppMercatUB extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
    
-    /*
-    
-    public void actualitzarComandes() {
-
-        if (this.control.recuperarComandes()!= null) {
-            DefaultListModel<String> list = new DefaultListModel<>();
-            Iterator<String> it = this.control.recuperarComandes().iterator();
-            while (it.hasNext()) {
-                list.addElement(it.next());
-            }
-            this.llista_comandes.setModel(list);
-        } else {
-            DefaultListModel<String> list = new DefaultListModel<>();
-            list.addElement("El repositori està buit");
-            llista_articles.setModel(list);
-        }
-    }
+  
+   
     
     
     /**
