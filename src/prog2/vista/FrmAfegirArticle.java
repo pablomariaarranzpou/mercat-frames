@@ -5,8 +5,7 @@
  */
 package prog2.vista;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 import prog2.controlador.Controlador;
 

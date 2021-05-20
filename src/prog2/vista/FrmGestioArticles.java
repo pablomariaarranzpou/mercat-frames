@@ -40,34 +40,46 @@ public class FrmGestioArticles extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         llistaArticles = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
+        btnAfegirArticle = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnExitPerformed = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jScrollPane1.setViewportView(llistaArticles);
 
-        jButton1.setText("Afegir Article");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAfegirArticle.setText("Afegir Article");
+        btnAfegirArticle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAfegirArticleActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Llista Articles");
 
+        btnExitPerformed.setText("Sortir");
+        btnExitPerformed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitPerformedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAfegirArticle, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnExitPerformed)
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,18 +89,23 @@ public class FrmGestioArticles extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .addComponent(btnAfegirArticle))
+                .addGap(18, 18, 18)
+                .addComponent(btnExitPerformed)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAfegirArticleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfegirArticleActionPerformed
         FrmAfegirArticle frame = new FrmAfegirArticle(this.controlador, this);
         frame.setVisible(true);
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAfegirArticleActionPerformed
+
+    private void btnExitPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitPerformedActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnExitPerformedActionPerformed
 
     public void actualitzarArticles() {
 
@@ -108,7 +125,8 @@ public class FrmGestioArticles extends javax.swing.JFrame {
     
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAfegirArticle;
+    private javax.swing.JButton btnExitPerformed;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> llistaArticles;

@@ -40,6 +40,7 @@ public class FrmGestioClients extends javax.swing.JFrame {
         llistaClients = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnExitActionPerformed = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,17 +55,29 @@ public class FrmGestioClients extends javax.swing.JFrame {
             }
         });
 
+        btnExitActionPerformed.setText("Sortir");
+        btnExitActionPerformed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnExitActionPerformed))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
@@ -79,7 +92,9 @@ public class FrmGestioClients extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jButton1)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnExitActionPerformed)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -89,6 +104,10 @@ public class FrmGestioClients extends javax.swing.JFrame {
         FrmAfegirClient frame = new FrmAfegirClient(this.controlador, this);
         frame.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnExitActionPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformedActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnExitActionPerformedActionPerformed
 
     public void actualitzarClients() {
         if (this.controlador.recuperarClients() != null) {
@@ -100,13 +119,14 @@ public class FrmGestioClients extends javax.swing.JFrame {
             this.llistaClients.setModel(list);
         } else {
             DefaultListModel<String> list = new DefaultListModel<>();
-            list.addElement("El repositori està buit");
+            list.addElement("No hi ha clients");
             llistaClients.setModel(list);
         }
     }
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExitActionPerformed;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

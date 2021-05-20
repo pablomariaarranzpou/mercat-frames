@@ -35,7 +35,7 @@ public class AppMercatUB extends javax.swing.JFrame {
 
         btnGestioClients = new javax.swing.JButton();
         jButtonGestioArticles = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnGestioComandes = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
@@ -55,10 +55,10 @@ public class AppMercatUB extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Gestió Comandes");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnGestioComandes.setText("Gestió Comandes");
+        btnGestioComandes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnGestioComandesActionPerformed(evt);
             }
         });
 
@@ -85,7 +85,7 @@ public class AppMercatUB extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnGestioClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonGestioArticles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestioComandes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(77, Short.MAX_VALUE))
@@ -98,7 +98,7 @@ public class AppMercatUB extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jButtonGestioArticles)
                 .addGap(26, 26, 26)
-                .addComponent(jButton3)
+                .addComponent(btnGestioComandes)
                 .addGap(28, 28, 28)
                 .addComponent(jButton4)
                 .addGap(31, 31, 31)
@@ -119,9 +119,10 @@ public class AppMercatUB extends javax.swing.JFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_jButtonGestioArticlesActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnGestioComandesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestioComandesActionPerformed
+        FrmGestioComandes frame = new FrmGestioComandes(this.control);
+        frame.setVisible(true);
+    }//GEN-LAST:event_btnGestioComandesActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -172,7 +173,7 @@ public class AppMercatUB extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGestioClients;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnGestioComandes;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonGestioArticles;
