@@ -5,11 +5,8 @@
  */
 package prog2.vista;
 
-
 import javax.swing.JOptionPane;
 import prog2.controlador.Controlador;
-
-
 
 /**
  *
@@ -20,14 +17,13 @@ public class FrmAfegirArticle extends javax.swing.JFrame {
     /**
      * Creates new form FrmGestioArticles
      */
-    
-    Controlador controlador;
-    FrmGestioArticles frame;
-    
+    Controlador _controlador;
+    FrmGestioArticles _frame;
+
     public FrmAfegirArticle(Controlador controlador, FrmGestioArticles frame) {
         initComponents();
-        this.controlador = controlador;
-        this.frame = frame;
+        _controlador = controlador;
+        _frame = frame;
     }
 
     /**
@@ -48,9 +44,9 @@ public class FrmAfegirArticle extends javax.swing.JFrame {
         txtNom = new javax.swing.JTextField();
         txtPreu = new javax.swing.JTextField();
         txtTemps = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        btnAfegir = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        boxAdmetUrgent = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,17 +60,17 @@ public class FrmAfegirArticle extends javax.swing.JFrame {
 
         jLabel5.setText("Admet Urgent:");
 
-        jButton1.setText("Afegir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAfegir.setText("Afegir");
+        btnAfegir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAfegirActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
@@ -108,13 +104,13 @@ public class FrmAfegirArticle extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox1)))
+                        .addComponent(boxAdmetUrgent)))
                 .addContainerGap(116, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAfegir, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
@@ -137,51 +133,46 @@ public class FrmAfegirArticle extends javax.swing.JFrame {
                     .addComponent(etTemps)
                     .addComponent(txtTemps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jCheckBox1))
+                    .addComponent(boxAdmetUrgent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAfegir, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         if(this.jCheckBox1.isSelected()){
-             try {
-                 controlador.addArticle(this.txtID.getText(), this.txtNom.getText(), Float.parseFloat(this.txtPreu.getText()), (int) Long.parseLong(this.txtTemps.getText()), true);
-                 this.frame.actualitzarArticles();
-                 this.dispose();
-             } catch (MercatException ex) {
-                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
-             }
-         }else if(!this.jCheckBox1.isSelected()){
-             try {
-                 controlador.addArticle(this.txtID.getText(), this.txtNom.getText(), Float.parseFloat(this.txtPreu.getText()), (int) Long.parseLong(this.txtTemps.getText()), false);
-                 this.frame.actualitzarArticles();
-                 this.dispose();
-             } catch (MercatException ex) {
-                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
-             }  
-         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnAfegirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfegirActionPerformed
+        try {
+            String idArticle = this.txtID.getText();
+            String nomArticle = this.txtNom.getText();
+            float preuArticle = Float.parseFloat(this.txtPreu.getText());
+            int tempsEnviament = Integer.parseInt(this.txtTemps.getText());
+            boolean admetUrgent = this.boxAdmetUrgent.isSelected();
+            _controlador.addArticle(idArticle, nomArticle, preuArticle, tempsEnviament, admetUrgent);
+            _frame.actualitzarArticles();
+            this.dispose();
+        } catch (MercatException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAfegirActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox boxAdmetUrgent;
+    private javax.swing.JButton btnAfegir;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel etNom;
     private javax.swing.JLabel etPreu;
     private javax.swing.JLabel etTemps;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtID;

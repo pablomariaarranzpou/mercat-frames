@@ -22,12 +22,11 @@ public class AppMercatUB extends javax.swing.JFrame {
     /**
      * Creates new form Inici
      */
-    private Controlador control;
+    private Controlador _controlador;
     
     public AppMercatUB() {
         initComponents();
-        this.control = new Controlador();
-        
+        _controlador = new Controlador();
     }
 
     /**
@@ -45,6 +44,7 @@ public class AppMercatUB extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnRecuperar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnSortir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,14 +69,14 @@ public class AppMercatUB extends javax.swing.JFrame {
             }
         });
 
-        btnGuardar.setText("Guardar");
+        btnGuardar.setText("Guardar Dades");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        btnRecuperar.setText("Recueprar");
+        btnRecuperar.setText("Recuperar Dades");
         btnRecuperar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRecuperarActionPerformed(evt);
@@ -86,6 +86,13 @@ public class AppMercatUB extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         jLabel1.setText("MENÚ PRINCIPAL");
 
+        btnSortir.setText("Sortir");
+        btnSortir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSortirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,17 +100,23 @@ public class AppMercatUB extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnGestioClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonGestioArticles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnGestioComandes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnRecuperar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel1)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnGestioClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonGestioArticles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnGestioComandes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnRecuperar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 44, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSortir)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,31 +133,33 @@ public class AppMercatUB extends javax.swing.JFrame {
                 .addComponent(btnGuardar)
                 .addGap(31, 31, 31)
                 .addComponent(btnRecuperar)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(btnSortir)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGestioClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestioClientsActionPerformed
-        FrmGestioClients frame = new FrmGestioClients(this.control);
+        FrmGestioClients frame = new FrmGestioClients(_controlador);
         frame.setVisible(true);
     }//GEN-LAST:event_btnGestioClientsActionPerformed
 
     private void jButtonGestioArticlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestioArticlesActionPerformed
-        FrmGestioArticles frame = new FrmGestioArticles(this.control);
+        FrmGestioArticles frame = new FrmGestioArticles(_controlador);
         frame.setVisible(true);
     }//GEN-LAST:event_jButtonGestioArticlesActionPerformed
 
     private void btnGestioComandesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestioComandesActionPerformed
-        FrmGestioComandes frame = new FrmGestioComandes(this.control);
+        FrmGestioComandes frame = new FrmGestioComandes(_controlador);
         frame.setVisible(true);
     }//GEN-LAST:event_btnGestioComandesActionPerformed
 
     @SuppressWarnings("empty-statement")
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         try {
-            control.guardar(JOptionPane.showInputDialog(this, "Introduiex el cami on vols guardar les dades: "));
+            _controlador.guardar(JOptionPane.showInputDialog(this, "Introduiex el cami on vols guardar les dades: "));
         } catch (MercatException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
         }
@@ -165,12 +180,17 @@ public class AppMercatUB extends javax.swing.JFrame {
                 //Obtenim el fitxer
                 fitxer = seleccio.getSelectedFile();
                 //Posem la ruta del fitxer al quadre de text
-                this.control.recuperar(fitxer.toString());
+                _controlador.recuperar(fitxer.toString());
             } catch (MercatException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);;
             }
         }
     }//GEN-LAST:event_btnRecuperarActionPerformed
+
+    private void btnSortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnSortirActionPerformed
    
   
    
@@ -216,6 +236,7 @@ public class AppMercatUB extends javax.swing.JFrame {
     private javax.swing.JButton btnGestioComandes;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRecuperar;
+    private javax.swing.JButton btnSortir;
     private javax.swing.JButton jButtonGestioArticles;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

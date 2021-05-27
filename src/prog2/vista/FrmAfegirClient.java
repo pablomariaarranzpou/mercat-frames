@@ -11,8 +11,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import prog2.controlador.Controlador;
 
-
-
 /**
  *
  * @author Pablo
@@ -22,19 +20,17 @@ public class FrmAfegirClient extends javax.swing.JFrame {
     /**
      * Creates new form FrmGestioClients
      */
-    
-    Controlador control;
-    ButtonGroup tipusClient;
-    FrmGestioClients frame;
-    
-    
+    Controlador _control;
+    ButtonGroup _tipusClient;
+    FrmGestioClients _frame;
+
     public FrmAfegirClient(Controlador controlador, FrmGestioClients frame) {
         initComponents();
-        this.control = controlador;
-        tipusClient = new ButtonGroup();
-        tipusClient.add(this.premiumRadioButton);
-        tipusClient.add(this.estandardRadioButton);
-        this.frame = frame;
+        _control = controlador;
+        _tipusClient = new ButtonGroup();
+        _tipusClient.add(this.premiumRadioButton);
+        _tipusClient.add(this.estandardRadioButton);
+        _frame = frame;
     }
 
     /**
@@ -50,8 +46,8 @@ public class FrmAfegirClient extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNom = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtMail = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnAcceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -73,15 +69,15 @@ public class FrmAfegirClient extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtMailActionPerformed(evt);
             }
         });
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtAddressActionPerformed(evt);
             }
         });
 
@@ -95,6 +91,11 @@ public class FrmAfegirClient extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         premiumRadioButton.setText("Premium");
 
@@ -122,8 +123,8 @@ public class FrmAfegirClient extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtNom)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
+                                .addComponent(txtMail)
+                                .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(premiumRadioButton)
                                 .addGap(18, 18, 18)
@@ -141,11 +142,11 @@ public class FrmAfegirClient extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -165,39 +166,32 @@ public class FrmAfegirClient extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtMailActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtAddressActionPerformed
 
     private void btnAcceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptarActionPerformed
-
-        if (this.estandardRadioButton.isSelected()) {
-
-            try {
-                this.control.addClient(this.txtNom.getText(), this.jTextField2.getText(), this.jTextField3.getText(), false);
-            } catch (MercatException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
-            }
-            this.frame.actualitzarClients();
-            this.dispose();
-        } else if (this.premiumRadioButton.isSelected()) {
-
-            try {
-                this.control.addClient(this.txtNom.getText(), this.jTextField2.getText(), this.jTextField3.getText(), true);
-            } catch (MercatException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
-            }
-            this.frame.actualitzarClients();
-            this.dispose();
-
+        try {
+            String mailClient = this.txtMail.getText();
+            String nomClient = this.txtNom.getText();
+            String adrecaClient = this.txtAddress.getText();
+            boolean isPremium = this.premiumRadioButton.isSelected();
+            _control.addClient(mailClient, nomClient, adrecaClient, isPremium);
+        } catch (MercatException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
         }
-
+        _frame.actualitzarClients();
+        this.dispose();
     }//GEN-LAST:event_btnAcceptarActionPerformed
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -208,9 +202,9 @@ public class FrmAfegirClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JRadioButton premiumRadioButton;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtMail;
     private javax.swing.JTextField txtNom;
     // End of variables declaration//GEN-END:variables
 }

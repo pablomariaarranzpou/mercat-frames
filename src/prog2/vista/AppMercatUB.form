@@ -26,21 +26,30 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnGestioClients" max="32767" attributes="0"/>
-                          <Component id="jButtonGestioArticles" max="32767" attributes="0"/>
-                          <Component id="btnGestioComandes" max="32767" attributes="0"/>
-                          <Component id="btnGuardar" max="32767" attributes="0"/>
-                          <Component id="btnRecuperar" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnGestioClients" max="32767" attributes="0"/>
+                                  <Component id="jButtonGestioArticles" max="32767" attributes="0"/>
+                                  <Component id="btnGestioComandes" max="32767" attributes="0"/>
+                                  <Component id="btnGuardar" max="32767" attributes="0"/>
+                                  <Component id="btnRecuperar" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
+                      <EmptySpace min="0" pref="44" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btnSortir" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -59,7 +68,9 @@
               <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Component id="btnRecuperar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
+              <Component id="btnSortir" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -91,7 +102,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGuardar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Guardar"/>
+        <Property name="text" type="java.lang.String" value="Guardar Dades"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarActionPerformed"/>
@@ -99,7 +110,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnRecuperar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Recueprar"/>
+        <Property name="text" type="java.lang.String" value="Recuperar Dades"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRecuperarActionPerformed"/>
@@ -112,6 +123,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="MEN&#xda; PRINCIPAL"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSortir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sortir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSortirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

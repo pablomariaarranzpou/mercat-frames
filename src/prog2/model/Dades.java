@@ -66,9 +66,9 @@ public class Dades implements InDades, Serializable {
         // Com la clase List es abstracte cridem a la seva clase filla ArrayList
         List<String> llista = new ArrayList<>();
 
-        Iterator<String> it = llista.iterator();
+        Iterator<Article> it = _llistaArticles.getArrayList().iterator();
         while (it.hasNext()) {
-            llista.add(it.toString());
+            llista.add(it.next().toString());
         }
 
         return llista;
@@ -102,10 +102,10 @@ public class Dades implements InDades, Serializable {
     @Override
     public List<String> recuperaClients() {
         List<String> llista = new ArrayList<>();
-
-        Iterator<String> it = llista.iterator();
+        
+        Iterator<Client> it = _llistaClients.getArrayList().iterator();
         while (it.hasNext()) {
-            llista.add(it.toString());
+            llista.add(it.next().toString());
         }
 
         return llista;
@@ -154,9 +154,9 @@ public class Dades implements InDades, Serializable {
     public List<String> recuperaComandes() {
         List<String> llista = new ArrayList<>();
 
-        Iterator<String> it = llista.iterator();
+        Iterator<Comanda> it = _llistaComandes.getArrayList().iterator();
         while (it.hasNext()) {
-            llista.add(it.toString());
+            llista.add(it.next().toString());
         }
 
         return llista;
@@ -174,7 +174,7 @@ public class Dades implements InDades, Serializable {
         Iterator<String> it = llista.iterator();
         while (it.hasNext()) {
             if (it instanceof ComandaUrgent) {
-                llista.add(it.toString());
+                llista.add(it.next());
             }
         }
 

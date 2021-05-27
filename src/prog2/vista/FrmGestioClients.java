@@ -19,11 +19,11 @@ public class FrmGestioClients extends javax.swing.JFrame {
      * Creates new form FrmGestioClients
      */
     
-    Controlador controlador;
+    Controlador _controlador;
     
     public FrmGestioClients(Controlador controlador) {
         initComponents();
-        this.controlador = controlador;
+        _controlador = controlador;
         actualitzarClients();
     }
 
@@ -39,7 +39,7 @@ public class FrmGestioClients extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         llistaClients = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAfegirClient = new javax.swing.JButton();
         btnExitActionPerformed = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,10 +48,10 @@ public class FrmGestioClients extends javax.swing.JFrame {
 
         jLabel1.setText("Llista Clients");
 
-        jButton1.setText("Afegir Client");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAfegirClient.setText("Afegir Client");
+        btnAfegirClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAfegirClientActionPerformed(evt);
             }
         });
 
@@ -73,7 +73,7 @@ public class FrmGestioClients extends javax.swing.JFrame {
                         .addComponent(btnExitActionPerformed))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(jButton1)
+                        .addComponent(btnAfegirClient)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -91,7 +91,7 @@ public class FrmGestioClients extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(jButton1)))
+                        .addComponent(btnAfegirClient)))
                 .addGap(18, 18, 18)
                 .addComponent(btnExitActionPerformed)
                 .addContainerGap(29, Short.MAX_VALUE))
@@ -100,19 +100,19 @@ public class FrmGestioClients extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FrmAfegirClient frame = new FrmAfegirClient(this.controlador, this);
+    private void btnAfegirClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfegirClientActionPerformed
+        FrmAfegirClient frame = new FrmAfegirClient(_controlador, this);
         frame.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAfegirClientActionPerformed
 
     private void btnExitActionPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformedActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnExitActionPerformedActionPerformed
 
     public void actualitzarClients() {
-        if (this.controlador.recuperarClients() != null) {
+        if (_controlador.recuperarClients() != null) {
             DefaultListModel<String> list = new DefaultListModel<>();
-            Iterator<String> it = this.controlador.recuperarClients().iterator();
+            Iterator<String> it = _controlador.recuperarClients().iterator();
             while (it.hasNext()) {
                 list.addElement(it.next());
             }
@@ -126,8 +126,8 @@ public class FrmGestioClients extends javax.swing.JFrame {
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAfegirClient;
     private javax.swing.JButton btnExitActionPerformed;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> llistaClients;

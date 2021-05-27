@@ -19,14 +19,12 @@ public class FrmGestioArticles extends javax.swing.JFrame {
     /**
      * Creates new form FrmGestioArticles
      */
-    
-    Controlador controlador;
-    
+    Controlador _controlador;
+
     public FrmGestioArticles(Controlador control) {
         initComponents();
-        this.controlador = control;
+        _controlador = control;
         actualitzarArticles();
-        
     }
 
     /**
@@ -99,7 +97,7 @@ public class FrmGestioArticles extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAfegirArticleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfegirArticleActionPerformed
-        FrmAfegirArticle frame = new FrmAfegirArticle(this.controlador, this);
+        FrmAfegirArticle frame = new FrmAfegirArticle(_controlador, this);
         frame.setVisible(true);
     }//GEN-LAST:event_btnAfegirArticleActionPerformed
 
@@ -108,10 +106,9 @@ public class FrmGestioArticles extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitPerformedActionPerformed
 
     public void actualitzarArticles() {
-
-        if (this.controlador.recuperarArticles() != null) {
+        if (_controlador.recuperarArticles() != null) {
             DefaultListModel<String> list = new DefaultListModel<>();
-            Iterator<String> it = this.controlador.recuperarArticles().iterator();
+            Iterator<String> it = _controlador.recuperarArticles().iterator();
             while (it.hasNext()) {
                 list.addElement(it.next());
             }
@@ -122,8 +119,8 @@ public class FrmGestioArticles extends javax.swing.JFrame {
             llistaArticles.setModel(list);
         }
     }
-    
- 
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAfegirArticle;
     private javax.swing.JButton btnExitPerformed;
