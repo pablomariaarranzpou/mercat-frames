@@ -171,10 +171,10 @@ public class Dades implements InDades, Serializable {
     public List<String> recuperaComandesUrgents() {
         List<String> llista = new ArrayList<>();
 
-        Iterator<String> it = llista.iterator();
+        Iterator<Comanda> it = _llistaComandes.getArrayList().iterator();
         while (it.hasNext()) {
             if (it instanceof ComandaUrgent) {
-                llista.add(it.next());
+                llista.add(it.next().toString());
             }
         }
 
