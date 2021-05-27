@@ -42,9 +42,9 @@ public class LlistaClients extends Llista<Client> implements Serializable {
      * @return 
      */
     private boolean contains(Client client) {
-        Iterator it = llista.iterator();
+        Iterator<Client> it = llista.iterator();
         while(it.hasNext()) {
-            if (client.equals(it.next())) {
+            if (client.getCorreu().equals(it.next().getCorreu())) {
                 return true;
             }
         }

@@ -51,7 +51,7 @@ public class ComandaNormal extends Comanda implements Serializable {
     public boolean comandaEnviada() {
         Date dataActual = new Date();
         // Trobem la data d'enviament sumant la data de creació més el temps fins enviaments
-        Date dataEnviament = new Date(this._creacioComanda.getTime() + this._article.getTempsFinsEnviament());
+        Date dataEnviament = new Date(this.getCreacioComanda().getTime() + this.getArticle().getTempsFinsEnviament());
         return dataActual.after(dataEnviament);
     }
 
@@ -65,7 +65,7 @@ public class ComandaNormal extends Comanda implements Serializable {
     public boolean comandaRebuda() {
         Date dataActual = new Date();
         // Trobem la data d'enviament sumant la data de creació més el temps fins enviaments
-        Date dataRebuda = new Date(this._creacioComanda.getTime() + TimeUnit.DAYS.toMillis(_tempsRebuda));
+        Date dataRebuda = new Date(this.getCreacioComanda().getTime() + TimeUnit.DAYS.toMillis(_tempsRebuda));
         return dataActual.after(dataRebuda);
     }
 
@@ -77,7 +77,7 @@ public class ComandaNormal extends Comanda implements Serializable {
      */
     @Override
     public float preuEnviament() {
-        return _preuEnviament - (_preuEnviament * (this._client.descompteEnv() / 100));
+        return _preuEnviament - (_preuEnviament * (this.getClient().descompteEnv() / 100));
     }
 
 }

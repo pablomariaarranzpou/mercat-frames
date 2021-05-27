@@ -42,9 +42,9 @@ public class LlistaArticles extends Llista<Article> implements Serializable {
      * @return 
      */
     private boolean contains(Article article) {
-        Iterator it = llista.iterator();
+        Iterator<Article> it = llista.iterator();
         while(it.hasNext()) {
-            if (article.equals(it.next())) {
+            if (article.getIdentificador().equals(it.next().getIdentificador())) {
                 return true;
             }
         }

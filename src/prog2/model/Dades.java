@@ -15,6 +15,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import prog2.vista.MercatException;
 
 /**
@@ -113,7 +115,8 @@ public class Dades implements InDades, Serializable {
      * @param clientPos Posició del client en la llista.
      * @param quantitat Quantitat de l'article.
      * @param esUrgent Indica si la comanda és urgent o no.
-     * @throws MercatException Si la comanda és urgent però l'article no ho permet, es tira excepció.
+     * @throws MercatException Si la comanda és urgent però l'article no ho
+     * permet, es tira excepció.
      */
     @Override
     public void afegirComanda(int articlePos, int clientPos, int quantitat, boolean esUrgent) throws MercatException {
@@ -177,18 +180,23 @@ public class Dades implements InDades, Serializable {
      * Métode per guardar dades d´un fitxer
      *
      * @param path Path al fitxer.
-     * @throws FileNotFoundException
-     * @throws IOException
+     * @throws prog2.vista.MercatException
      */
-    public void guardaDades(String path) throws FileNotFoundException, IOException {
-        File fitxer = new File(path);
-        FileOutputStream fout;
-        ObjectOutputStream oos;
-        fout = new FileOutputStream(fitxer);
-        oos = new ObjectOutputStream(fout);
-        oos.writeObject(this);
-        oos.close();
-        fout.close();
+    public void guardaDades(String path) throws MercatException {
+
+        try {
+            File fitxer = new File(path);
+            FileOutputStream fout;
+            ObjectOutputStream oos;
+            fout = new FileOutputStream(fitxer);
+            oos = new ObjectOutputStream(fout);
+            oos.writeObject(this);
+            oos.close();
+            fout.close();
+        } catch (IOException ex) {
+            throw new MercatException("No ´ha pogut guardar");
+        }
+
     }
 
     /**
@@ -196,22 +204,25 @@ public class Dades implements InDades, Serializable {
      *
      * @param path Path al fitxer.
      * @return Retorna un objecte Dades.
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * @throws prog2.vista.MercatException
      */
-    public Dades carregaDades(String path) throws IOException, ClassNotFoundException {
-        File fitxer = new File(path);
-        FileInputStream fin;
-        ObjectInputStream ois;
-        Dades carrega = null;
+    public Dades carregaDades(String path) throws MercatException {
+        try {
+            File fitxer = new File(path);
+            FileInputStream fin;
+            ObjectInputStream ois;
+            Dades carrega = null;
 
-        fin = new FileInputStream(fitxer);
-        ois = new ObjectInputStream(fin);
-        carrega = (Dades) ois.readObject();
-        fin.close();
-        ois.close();
+            fin = new FileInputStream(fitxer);
+            ois = new ObjectInputStream(fin);
+            carrega = (Dades) ois.readObject();
+            fin.close();
+            ois.close();
+            return carrega;
 
-        return carrega;
+        } catch (IOException | ClassNotFoundException ex) {
+            throw new MercatException("No ´ha pogut recuperar");
+        }
 
     }
 }

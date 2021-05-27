@@ -122,18 +122,17 @@ public class Controlador {
 
     /**
      * Métode que crida a Dades per guardar les dades a un fitxer.
-     * @throws IOException
+     * @throws prog2.vista.MercatException
      */
-    public void guardar() throws IOException {
+    public void guardar() throws MercatException {
         _dades.guardaDades("dades.dat");
     }
 
     /**
      * Métode que crida a Dades per recuperar les dades a un fitxer
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * @throws prog2.vista.MercatException
      */
-    public void recuperar() throws IOException, ClassNotFoundException {
+    public void recuperar() throws MercatException {
         _dades = _dades.carregaDades("dades.dat");
     }
 

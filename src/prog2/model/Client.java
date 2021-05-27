@@ -18,13 +18,7 @@ public abstract class Client implements Serializable {
     protected String _correu;
     protected String _adreca;
 
-    public String getNom() {
-        return _nom;
-    }
 
-    public void setNom(String nom) {
-        _nom = nom;
-    }
 
     /**
      * Constructor de la classe Client
@@ -44,7 +38,7 @@ public abstract class Client implements Serializable {
      *
      * @return Retorna la ID del client
      */
-    public String getId() {
+    public String getNom() {
         return _nom;
     }
 
@@ -53,7 +47,7 @@ public abstract class Client implements Serializable {
      *
      * @param nom Canvia el nom del client
      */
-    public void setId(String nom) {
+    public void setNom(String nom) {
         _nom = nom;
     }
 
