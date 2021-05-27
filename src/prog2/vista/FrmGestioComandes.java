@@ -300,6 +300,7 @@ public class FrmGestioComandes extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             _controlador.eliminarComanda(this.llistaComandes.getSelectedIndex());
+            this.actualitzarComandes();
         } catch (MercatException ex){
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Informació d'errors", JOptionPane.ERROR_MESSAGE);
         }
