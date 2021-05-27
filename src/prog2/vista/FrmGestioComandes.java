@@ -78,6 +78,11 @@ public class FrmGestioComandes extends javax.swing.JFrame {
         });
 
         btnEsborrarComanda.setText("Esborrar Comanda");
+        btnEsborrarComanda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEsborrarComandaActionPerformed(evt);
+            }
+        });
 
         btnSortir.setText("Sortir");
 
@@ -290,6 +295,15 @@ public class FrmGestioComandes extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnEsborrarComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsborrarComandaActionPerformed
+        // TODO add your handling code here:
+        try {
+            _controlador.eliminarComanda(this.llistaComandes.getSelectedIndex());
+        } catch (MercatException ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Informació d'errors", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnEsborrarComandaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox boxMostrarUrgents;
