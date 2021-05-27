@@ -206,7 +206,7 @@ public class Dades implements InDades, Serializable {
      * @return Retorna un objecte Dades.
      * @throws prog2.vista.MercatException
      */
-    public Dades carregaDades(String path) throws MercatException {
+    public final Dades carregaDades(String path) throws MercatException {
         try {
             File fitxer = new File(path);
             FileInputStream fin;

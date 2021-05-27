@@ -5,6 +5,12 @@
  */
 package prog2.vista;
 
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import prog2.controlador.Controlador;
 
 /**
@@ -36,8 +42,9 @@ public class AppMercatUB extends javax.swing.JFrame {
         btnGestioClients = new javax.swing.JButton();
         jButtonGestioArticles = new javax.swing.JButton();
         btnGestioComandes = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnRecuperar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,48 +69,58 @@ public class AppMercatUB extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Guardar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Recueprar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnRecuperar.setText("Recueprar");
+        btnRecuperar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnRecuperarActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel1.setText("MENÚ PRINCIPAL");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGestioClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonGestioArticles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGestioComandes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnGestioClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonGestioArticles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGestioComandes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRecuperar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel1)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(btnGestioClients)
                 .addGap(26, 26, 26)
                 .addComponent(jButtonGestioArticles)
                 .addGap(26, 26, 26)
                 .addComponent(btnGestioComandes)
                 .addGap(28, 28, 28)
-                .addComponent(jButton4)
+                .addComponent(btnGuardar)
                 .addGap(31, 31, 31)
-                .addComponent(jButton5)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addComponent(btnRecuperar)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -124,13 +141,36 @@ public class AppMercatUB extends javax.swing.JFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_btnGestioComandesActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    @SuppressWarnings("empty-statement")
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        try {
+            control.guardar(JOptionPane.showInputDialog(this, "Introduiex el cami on vols guardar les dades: "));
+        } catch (MercatException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    @SuppressWarnings("empty-statement")
+    private void btnRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarActionPerformed
+        File fitxer;
+        //Creació del selector de fitxer
+        JFileChooser seleccio = new JFileChooser();
+        //Mostrem la finestra de dialeg
+        //Resultat emmagazema una constant que indica si s’ha
+        //seleccionat o no un fitxer
+        int resultat = seleccio.showOpenDialog(this);
+        //Assegurem que hi hagi un fitxer seleccionat
+        if (resultat == JFileChooser.APPROVE_OPTION) {
+            try {
+                //Obtenim el fitxer
+                fitxer = seleccio.getSelectedFile();
+                //Posem la ruta del fitxer al quadre de text
+                this.control.recuperar(fitxer.toString());
+            } catch (MercatException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Informacio de errors", JOptionPane.ERROR_MESSAGE);;
+            }
+        }
+    }//GEN-LAST:event_btnRecuperarActionPerformed
    
   
    
@@ -174,8 +214,9 @@ public class AppMercatUB extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGestioClients;
     private javax.swing.JButton btnGestioComandes;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnRecuperar;
     private javax.swing.JButton jButtonGestioArticles;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
