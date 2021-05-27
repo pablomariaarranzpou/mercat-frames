@@ -14,6 +14,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -62,11 +63,12 @@ public class Dades implements InDades, Serializable {
     @Override
     public List<String> recuperaArticles() {
 
-        //Com la clase List es abstracte cridem a la seva clase filla ArrayList
+        // Com la clase List es abstracte cridem a la seva clase filla ArrayList
         List<String> llista = new ArrayList<>();
 
-        for (int i = 0; i < _llistaArticles.getSize(); i++) {
-            llista.add(_llistaArticles.getAt(i).toString());
+        Iterator<String> it = llista.iterator();
+        while (it.hasNext()) {
+            llista.add(it.toString());
         }
 
         return llista;
@@ -101,8 +103,9 @@ public class Dades implements InDades, Serializable {
     public List<String> recuperaClients() {
         List<String> llista = new ArrayList<>();
 
-        for (int i = 0; i < _llistaClients.getSize(); i++) {
-            llista.add(_llistaClients.getAt(i).toString());
+        Iterator<String> it = llista.iterator();
+        while (it.hasNext()) {
+            llista.add(it.toString());
         }
 
         return llista;
@@ -151,8 +154,9 @@ public class Dades implements InDades, Serializable {
     public List<String> recuperaComandes() {
         List<String> llista = new ArrayList<>();
 
-        for (int i = 0; i < _llistaComandes.getSize(); i++) {
-            llista.add(_llistaComandes.getAt(i).toString());
+        Iterator<String> it = llista.iterator();
+        while (it.hasNext()) {
+            llista.add(it.toString());
         }
 
         return llista;
@@ -167,9 +171,10 @@ public class Dades implements InDades, Serializable {
     public List<String> recuperaComandesUrgents() {
         List<String> llista = new ArrayList<>();
 
-        for (int i = 0; i < _llistaComandes.getSize(); i++) {
-            if (_llistaComandes.getAt(i) instanceof ComandaUrgent) {
-                llista.add(_llistaComandes.getAt(i).toString());
+        Iterator<String> it = llista.iterator();
+        while (it.hasNext()) {
+            if (it instanceof ComandaUrgent) {
+                llista.add(it.toString());
             }
         }
 
@@ -194,7 +199,7 @@ public class Dades implements InDades, Serializable {
             oos.close();
             fout.close();
         } catch (IOException ex) {
-            throw new MercatException("No ´ha pogut guardar");
+            throw new MercatException(ex.getMessage());
         }
 
     }
@@ -221,7 +226,7 @@ public class Dades implements InDades, Serializable {
             return carrega;
 
         } catch (IOException | ClassNotFoundException ex) {
-            throw new MercatException("No ´ha pogut recuperar");
+            throw new MercatException(ex.getMessage());
         }
 
     }

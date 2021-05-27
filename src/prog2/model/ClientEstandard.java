@@ -14,6 +14,10 @@ import java.io.Serializable;
  */
 public class ClientEstandard extends Client implements Serializable {
 
+    static final String TIPUS_CLIENT = "Estandard";
+    static final float MENSUALITAT = 0; // Els clients estàndard no paguen mensualitat
+    static final float DESCOMPTE_ENVIAMENT = 0; // Els clients estàndard no reben descomptes en l'enviament.
+    
     /**
      * Métode constructor de la classe ClientEstandard.
      *
@@ -33,7 +37,7 @@ public class ClientEstandard extends Client implements Serializable {
      */
     @Override
     public String tipusClient() {
-        return "Estandard";
+        return TIPUS_CLIENT;
     }
 
     /**
@@ -44,7 +48,7 @@ public class ClientEstandard extends Client implements Serializable {
      */
     @Override
     public float calcMensual() {
-        return 0;   // Els clients estàndard no paguen mensualitat
+        return MENSUALITAT;
     }
 
     /**
@@ -55,7 +59,7 @@ public class ClientEstandard extends Client implements Serializable {
      */
     @Override
     public float descompteEnv() {
-        return 0; // Els clients estàndard no reben descomptes en l'enviament.
+        return DESCOMPTE_ENVIAMENT;
     }
 
 }

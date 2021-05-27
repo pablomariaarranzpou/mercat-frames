@@ -16,8 +16,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class ComandaNormal extends Comanda implements Serializable {
 
-    private final float _preuEnviament = 1; // Enviament comanda normal = 1 euro
-    private final long _tempsRebuda = 2; // Temps en rebre comanda normal = 2 dies
+    static final float PREU_ENVIAMENT = 1; // Enviament comanda normal = 1 euro
+    static final long TEMPS_REBUDA = 2; // Temps en rebre comanda normal = 2 dies
 
     /**
      * Constructor de la Classe ComandaNormal
@@ -65,7 +65,8 @@ public class ComandaNormal extends Comanda implements Serializable {
     public boolean comandaRebuda() {
         Date dataActual = new Date();
         // Trobem la data d'enviament sumant la data de creació més el temps fins enviaments
-        Date dataRebuda = new Date(this.getCreacioComanda().getTime() + TimeUnit.DAYS.toMillis(_tempsRebuda));
+        Date dataRebuda = new Date(this.getCreacioComanda().getTime() + 
+                this.getArticle().getTempsFinsEnviament() + TimeUnit.DAYS.toMillis(TEMPS_REBUDA));
         return dataActual.after(dataRebuda);
     }
 
@@ -77,7 +78,7 @@ public class ComandaNormal extends Comanda implements Serializable {
      */
     @Override
     public float preuEnviament() {
-        return _preuEnviament - (_preuEnviament * (this.getClient().descompteEnv() / 100));
+        return PREU_ENVIAMENT - (PREU_ENVIAMENT * (this.getClient().descompteEnv() / 100));
     }
 
 }

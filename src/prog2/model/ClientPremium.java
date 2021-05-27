@@ -13,7 +13,11 @@ import java.io.Serializable;
  * @author Pablo
  */
 public class ClientPremium extends Client implements Serializable {
-
+    static final String TIPUS_CLIENT = "Premium";
+    static final float MENSUALITAT = 4f; // Els clients premium paguen una mensualitat de 4 euros.
+    static final float DESCOMPTE_ENVIAMENT = 20f; // Els clients premium reben un 20% de descompte en l'enviament.
+    
+    
     /**
      * Constructor de la Classe CLientPremium
      *
@@ -33,7 +37,7 @@ public class ClientPremium extends Client implements Serializable {
      */
     @Override
     public String tipusClient() {
-        return "Premium";
+        return TIPUS_CLIENT;
     }
 
     /**
@@ -44,7 +48,7 @@ public class ClientPremium extends Client implements Serializable {
      */
     @Override
     public float calcMensual() {
-        return 4f; // Els clients premium paguen una mensualitat de 4 euros.
+        return MENSUALITAT;
     }
 
     /**
@@ -55,7 +59,7 @@ public class ClientPremium extends Client implements Serializable {
      */
     @Override
     public float descompteEnv() {
-        return 20f; // Els clients premium reben un 20% de descompte en l'enviament.
+        return DESCOMPTE_ENVIAMENT; 
     }
 
 }
